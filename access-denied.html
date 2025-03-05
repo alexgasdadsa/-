@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/XfMcC65Y/281-B29-F5-DE14-4-DF4-B392-00291-EB5-A5-B9.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACCESS DENIED !</title>
+    <!-- 1. منع النسخ -->
+    <style>
+      body {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+    </style>
+    <!-- 2. تعطيل زر الفأرة الأيمن -->
+    <script>
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+    </script>
+    <!-- 3. منع التفتيش باستخدام DevTools (حل معدل مع رسالة) -->
+    <script>
+      // الكشف عن فتح أدوات المطور باستخدام setInterval
+      let devtoolsOpen = false;
+      const threshold = 160; // عتبة زمنية للتحقق
+
+      const checkDevTools = () => {
+        const start = performance.now();
+        debugger; // نقطة توقف تؤدي إلى تأخير إذا كانت أدوات المطور مفتوحة
+        const end = performance.now();
+
+        if (end - start > threshold) {
+          devtoolsOpen = true;
+          alert("ACCESS DENIED !"); // رسالة تحذير
+          window.location.href = '/access-denied.html'; // إعادة توجيه إلى صفحة Access Denied
+        } else {
+          devtoolsOpen = false;
+        }
+      };
+
+      setInterval(checkDevTools, 1000); // التحقق كل ثانية
+    </script>
+    <!-- 4. منع الضغط على F12 -->
+    <script>
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J')) {
+          e.preventDefault();
+          alert("ACCESS DENIED !"); // رسالة تحذير
+          window.location.href = '/access-denied.html'; // إعادة توجيه إلى صفحة Access Denied
+        }
+      });
+    </script>
+    <!-- 5. منع النسخ باستخدام Ctrl+C -->
+    <script>
+      document.addEventListener('copy', (e) => {
+        e.preventDefault();
+        alert("ACCESS DENIED !"); // رسالة تحذير
+      });
+    </script>
+    <!-- 6. منع اللصق باستخدام Ctrl+V -->
+    <script>
+      document.addEventListener('paste', (e) => {
+        e.preventDefault();
+        alert(" ACCESS DENIED !"); // رسالة تحذير
+      });
+    </script>
+    <!-- 7. منع الانتقال بالسحب والإفلات -->
+    <script>
+      document.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+        alert("ACCESS DENIED !"); // رسالة تحذير
+      });
+    </script>
+    <!-- 8. منع عرض مصدر الصفحة عبر Ctrl+U -->
+    <script>
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'u') {
+          e.preventDefault();
+          alert("ACCESS DENIED !"); // رسالة تحذير
+          window.location.href = '/access-denied.html'; // إعادة توجيه إلى صفحة Access Denied
+        }
+      });
+    </script>
+    <!-- 9. منع استخدام لوحة المفاتيح داخل iframe -->
+    <script>
+      if (window.top !== window.self) {
+        window.top.location = window.self.location;
+      }
+    </script>
+    <!-- 10. تشفير الكود باستخدام Base64 -->
+    <script>
+      // يمكنك تشفير أجزاء من الكود وفك تشفيرها ديناميكيًا
+
+    </script>
+    <!-- 11. منع استخدام أدوات التحكم في النصوص -->
+    <script>
+      document.addEventListener('selectstart', (e) => {
+        e.preventDefault();
+        alert("ACCESS DENIED !"); // رسالة تحذير
+      });
+    </script>
+    <!-- 12. منع عرض الصفحة في إطار iframe -->
+    <style>
+      html {
+        display: none;
+      }
+    </style>
+    <script>
+      if (self === top) {
+        document.documentElement.style.display = 'block';
+      } else {
+        top.location = self.location;
+      }
+    </script>
+    <!-- 13. منع إعادة تحميل الصفحة باستخدام Ctrl+R -->
+    <script>
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'r') {
+          e.preventDefault();
+          alert("ACCESS DENIED !"); // رسالة تحذير
+        }
+      });
+    </script>
+    <!-- 14. منع استخدام أدوات التحكم في الشاشة -->
+    <script>
+      document.addEventListener('fullscreenchange', (e) => {
+        e.preventDefault();
+        alert("ACCESS DENIED !"); // رسالة تحذير
+      });
+      document.addEventListener('keydown', function(e) {
+        var blockedKeys = [
+            123, 
+            116, 
+            112, 
+            114, 
+            115, 
+            117, 
+            118, 
+            119, 
+            120, 
+            121, 
+            65,  
+66,  
+67,  
+68,  
+69,  
+70,  
+71,  
+72,  
+73,  
+74,  
+75,  
+76,  
+77,  
+78,  
+79,  
+80,  
+81,  
+82,  
+83,  
+84,  
+85,  
+86,  
+87,  
+88,  
+89,  
+90,  
+97,  
+98,  
+99,  
+100,  
+101,  
+102,  
+103,  
+104,  
+105,  
+106,  
+107,  
+108,  
+109,  
+110,  
+111,  
+112,  
+113,  
+114,  
+115,  
+116,  
+117,  
+118,  
+119,  
+120,  
+121,  
+122  
+
+             
+
+        ];
+
+        if (blockedKeys.includes(e.keyCode) || (e.ctrlKey && blockedKeys.includes(e.keyCode))) {
+            e.preventDefault(); 
+            alert("ACCESS DENIED !");
+        }
+    });
+    </script>
+    <!-- 15. تفعيل وضع القراءة فقط -->
+    <script>
+      document.body.setAttribute('contenteditable', 'false');
+    </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 20%;
+      animation: glitch 1s infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    p {
+      font-size: 2rem;
+      animation: flicker 0.5s infinite alternate;
+      position: relative;
+      z-index: 2;
+    }
+
+    .specter {
+      font-size: 6rem;
+      color: #ff0000;
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: pulse 2s infinite;
+      z-index: 3;
+    }
+
+    .matrix {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .matrix span {
+      position: absolute;
+      font-size: 2rem;
+      color: rgba(0, 255, 0, 0.8);
+      animation: matrix-fall 5s linear infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red;
+      }
+      20% {
+        text-shadow: 2px 2px 5px red, -2px -2px 10px red, 2px -2px 20px red;
+      }
+      40% {
+        text-shadow: -2px 2px 5px red, 2px -2px 10px red, -2px -2px 20px red;
+      }
+      60% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red;
+      }
+      80% {
+        text-shadow: 2px -2px 5px red, -2px 2px 10px red, 2px 2px 20px red;
+      }
+      100% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red;
+      }
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+      }
+      100% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      }
+    }
+
+    @keyframes matrix-fall {
+      0% {
+        top: -100%;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="specter">/SpEcTeR</div>
+  <h1>ACCESS DENIED</h1>
+  <p>Unauthorized Access Detected</p>
+
+  <!-- Matrix Rain Effect -->
+  <div class="matrix"></div>
+
+  <script>
+    // إنشاء تأثير المطر الرقمي (Matrix Rain)th / 20);
+
+    for (let i = 0; i < columns; i++) {
+      const span = document.createElement('span');
+      span.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+      span.style.left = `${i * 20}px`;
+      span.style.top = `${Math.random() * -100}%`;
+      matrix.appendChild(span);
+    }
+
+    // تحديث الرسائل بشكل عشوائي
+    setInterval(() => {
+      const messages = [
+        "ERROR 403: FORBIDDEN",
+        "SYSTEM BREACH DETECTED",
+        "SECURITY PROTOCOL ACTIVATED",
+        "INTRUSION ALERT",
+        "TERMINATING CONNECTION..."
+      ];
+      document.querySelector('p').textContent = messages[Math.floor(Math.random() * messages.length)];
+    }, 2000);
+  </script>
+</body>
+</html>
